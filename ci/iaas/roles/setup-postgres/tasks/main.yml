@@ -6,6 +6,9 @@
 - name: install postgresql-devel
   shell: sudo yum install -y postgresql-devel
 
+- name: install dev toolkit
+  shell: sudo yum groupinstall -y "Development Tools"
+
 - name: install pip3
   shell: sudo yum install -y python3-pip
 
