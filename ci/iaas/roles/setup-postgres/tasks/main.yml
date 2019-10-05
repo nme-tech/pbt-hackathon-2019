@@ -21,3 +21,6 @@
     executable: pip3
     state: latest
   become: yes
+
+- name: setup postgres stored credentials
+  template: src=.pgpass dest=~/.pgpass

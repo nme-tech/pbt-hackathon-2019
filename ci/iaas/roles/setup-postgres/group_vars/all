@@ -1,0 +1,2 @@
+---
+postgres_pw: "{{ lookup('env','POSTGRES_PW') }}"
