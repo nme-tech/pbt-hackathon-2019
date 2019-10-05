@@ -24,3 +24,9 @@
 
 - name: setup postgres stored credentials
   template: src=.pgpass dest=~/.pgpass
+
+- name: write db seed file
+  template: src=create_tables.py dest=~/create_tables.py
+
+- name: seed database
+  script: create_tables.py
