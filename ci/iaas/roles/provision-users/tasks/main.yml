@@ -1,0 +1,6 @@
+---
+- name: add user ssh access
+  lineinfile:
+    path: ~/.ssh/authorized_keys
+    line: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpz+14B1ccIMJBBbucCS2MttXT1Q3bRWcTSZsHYY3+oe5ALlG04wFnbqEu/f4G+szbuKCPLldhrl6f8OLFww6mD+LomtdVXZtWfP6jz6MiQHcCkuP5SuBsFBwvkUF9RnvvytWRiBkTQ0YamkqY6en0pPEyBHxB1Oh5o31SWvkhIO0VXAstxIOH1WWzOF7hEiLqOkOe0UnY5573gdy7PHoAlFVvVm/Y9GpKeY6AR9Rg7McuzvNtK/cXIeyKXcViNb3ehUgXQeJJ8VM0JoQHKiDnA39WGlT2mJPKEGsFclnfiE58SxLJyfH8p/XSNXi0RRNImX3LUyi8rqC6TKrbe5cZ stephensinclair'
+    create: yes

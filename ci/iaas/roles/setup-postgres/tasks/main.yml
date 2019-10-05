@@ -1,0 +1,24 @@
+---
+- name: install postgres el7 repo
+  yum:
+    name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
+    state: present
+
+- name: set postgres repo to use latest
+  shell: sed -i "s/rhel-\$releasever-\$basearch/rhel-latest-x86_64/g" "/etc/yum.repos.d/pgdg-10-redhat.repo"
+
+- name: install postgres 10 client
+  yum:
+    name: postgresql10
+    state: latest
+
+- name: install pip3
+  yum:
+    name: python3-pip
+    state: latest
+
+- name: install psycopg2
+  pip:
+    name: psycopg2
+    executable: pip3
+    state: latest

@@ -1,5 +1,11 @@
 ---
-- name: configure and deploy the webservers and application code
+- name: configure and deploy the infrastructure
   hosts: local
   roles:
     - deploy-iaas
+
+- name: setup web server
+  hosts: pbc311
+  roles:
+    - provision-users
+    - setup-postgres
