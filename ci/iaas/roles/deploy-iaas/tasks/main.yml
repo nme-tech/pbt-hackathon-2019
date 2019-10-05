@@ -33,7 +33,7 @@
     command: create
     instance_name: pbc311
     db_engine: postgres
-    size: 10
+    size: "10"
     instance_type: db.t3.micro
     region: us-east-1
     username: pgadmin
