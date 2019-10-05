@@ -24,7 +24,7 @@
 
 - name: create ec2 eip
   ec2_eip:
-    device_id: "{{ ec2_instance_pbc311.instances.instance_id }}"
+    device_id: "{{ ec2_instance_pbc311.instances.0.instance_id }}"
     region: us-east-1
   register: ec2_eip_pbc311
 
@@ -47,7 +47,6 @@
   route53:
     state: present
     zone: hackathon2019.nmetech.com
-    region: us-east-1
     private_zone: no
     record: pbc311.hackathon2019.nmetech.com
     type: A
@@ -60,11 +59,10 @@
   route53:
     state: present
     zone: hackathon2019.nmetech.com
-    region: us-east-1
     private_zone: yes
     record: pbc311.hackathon2019.nmetech.com
     type: A
     ttl: 7200
     value:
-      - "{{ ec2_instance_pbc311.instances.private_ip_address }}"
+      - "{{ ec2_instance_pbc311.instances.0.private_ip_address }}"
     wait: yes
