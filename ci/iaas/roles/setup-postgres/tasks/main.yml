@@ -29,4 +29,4 @@
   template: src=create_tables.py dest=~/create_tables.py
 
 - name: seed database
-  script: create_tables.py
+  shell: python3 create_tables.py
