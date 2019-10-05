@@ -1,0 +1,16 @@
+---
+- name: install nginx
+  shell: sudo amazon-linux-extras install -y nginx1.12
+  ignore_errors: True
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+  become: yes
+
+- name: autostart nginx
+  systemd:
+    name: nginx
+    enabled: yes
+  become: yes

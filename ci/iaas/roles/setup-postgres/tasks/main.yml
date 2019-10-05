@@ -1,6 +1,6 @@
 ---
 - name: install postgres 10
-  shell: sudo amazon-linux-extras install postgresql10
+  shell: sudo amazon-linux-extras install -y postgresql10
   ignore_errors: True
 
 - name: install postgresql-devel
