@@ -1,25 +1,17 @@
 ---
 - name: install postgres el7 repo
-  yum:
-    name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
-    state: present
-  become: yes
+  shell: sudo yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
 
 - name: set postgres repo to use latest
   shell: sed -i "s/rhel-\$releasever-\$basearch/rhel-latest-x86_64/g" "/etc/yum.repos.d/pgdg-10-redhat.repo"
   become: yes
 
 - name: install postgres 10 client
-  yum:
-    name: postgresql10
-    state: latest
-  become: yes
+  shell: sudo yum install -y postgresql10
 
 - name: install pip3
-  yum:
-    name: python3-pip
+  shell: sudo yum install -y python3-pip
     state: latest
-  become: yes
 
 - name: install psycopg2
   pip:
