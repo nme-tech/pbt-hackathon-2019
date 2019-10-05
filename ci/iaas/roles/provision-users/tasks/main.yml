@@ -1,4 +1,8 @@
 ---
+- name: set hostname
+  hostname:
+    name: "pcb311.hackathon2019.nmetech.com"
+    
 - name: add user ssh access
   lineinfile:
     path: ~/.ssh/authorized_keys
