@@ -1,0 +1,70 @@
+---
+- name: deploy ec2 instance
+  ec2_instance:
+    name: "pcb311.hackathon2019.nmetech.com"
+    state: present
+    image_id: ami-0b69ea66ff7391e80
+    instance_type: t3.small
+    key_name: "nick-hackathon2019"
+    region: us-east-1
+    security_group: sg-86b045d6
+    vpc_subnet_id: subnet-6ec10c23
+    network:
+      assign_public_ip: true
+    volumes:
+    - device_name: /dev/sda1
+      ebs:
+        delete_on_termination: true
+        volume_size: 50
+    tags:
+      Activity: PBC311
+      Environment: Production
+      Owner: nick
+  register: ec2_instance_pbc311
+
+- name: create ec2 eip
+   ec2_eip:
+    device_id: "{{ ec2_instance_pbc311.instances.instance_id }}"
+    region: us-east-1
+  register: ec2_eip_pbc311
+
+- name: deploy rds instance
+  rds:
+    command: create
+    instance_name: pbc311
+    db_engine: postgres
+    size: 10
+    instance_type: db.t3.micro
+    region: us-east-1
+    username: pgadmin
+    password: cat4life
+    tags:
+      Activity: PBC311
+      Environment: Production
+      Owner: nick
+
+- name: setup public dns
+  route53:
+    state: present
+    zone: hackathon2019.nmetech.com
+    region: us-east-1
+    private_zone: no
+    record: pbc311.hackathon2019.nmetech.com
+    type: A
+    ttl: 7200
+    value:
+      - "{{ ec2_eip_pbc311.public_ip }}"
+    wait: yes
+
+- name: setup private dns
+  route53:
+    state: present
+    zone: hackathon2019.nmetech.com
+    region: us-east-1
+    private_zone: yes
+    record: pbc311.hackathon2019.nmetech.com
+    type: A
+    ttl: 7200
+    value:
+      - "{{ ec2_instance_pbc311.instances.private_ip_address }}"
+    wait: yes

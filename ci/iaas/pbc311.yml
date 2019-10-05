@@ -1,0 +1,5 @@
+---
+- name: configure and deploy the webservers and application code
+  hosts: local
+  roles:
+    - deploy-iaas
