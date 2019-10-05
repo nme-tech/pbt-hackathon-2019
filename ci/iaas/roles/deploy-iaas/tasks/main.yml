@@ -54,7 +54,7 @@
     private_zone: no
     record: pbc311.hackathon2019.nmetech.com
     type: A
-    ttl: 7200
+    ttl: 300
     value:
       - "{{ ec2_eip_pbc311.public_ip }}"
     overwrite: yes
@@ -67,7 +67,7 @@
     private_zone: yes
     record: pbc311.hackathon2019.nmetech.com
     type: A
-    ttl: 7200
+    ttl: 300
     value:
       - "{{ ec2_instance_pbc311.instances.0.private_ip_address }}"
     overwrite: yes
@@ -80,7 +80,7 @@
     private_zone: no
     record: pbc311-db.hackathon2019.nmetech.com
     type: CNAME
-    ttl: 7200
+    ttl: 300
     value:
       - "{{ rds_instance_pbc311.instance.endpoint }}"
     overwrite: yes
@@ -93,7 +93,7 @@
     private_zone: yes
     record: pbc311-db.hackathon2019.nmetech.com
     type: CNAME
-    ttl: 7200
+    ttl: 300
     value:
       - "{{ rds_instance_pbc311.instance.endpoint }}"
     overwrite: yes
