@@ -16,6 +16,7 @@
       ebs:
         delete_on_termination: true
         volume_size: 50
+    user_data: "yum install -y python3"
     tags:
       Activity: PBC311
       Environment: Production
