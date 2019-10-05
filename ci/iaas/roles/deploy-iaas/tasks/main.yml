@@ -42,8 +42,9 @@
       Activity: PBC311
       Environment: Production
       Owner: nick
+  register: rds_instance_pbc311
 
-- name: setup public dns
+- name: setup public dns - ec2
   route53:
     state: present
     zone: hackathon2019.nmetech.com
@@ -55,7 +56,7 @@
       - "{{ ec2_eip_pbc311.public_ip }}"
     wait: yes
 
-- name: setup private dns
+- name: setup private dns - enc2
   route53:
     state: present
     zone: hackathon2019.nmetech.com
@@ -65,4 +66,16 @@
     ttl: 7200
     value:
       - "{{ ec2_instance_pbc311.instances.0.private_ip_address }}"
+    wait: yes
+
+- name: setup public dns - db
+  route53:
+    state: present
+    zone: hackathon2019.nmetech.com
+    private_zone: no
+    record: pbc311-db.hackathon2019.nmetech.com
+    type: CNAME
+    ttl: 7200
+    value:
+      - "{{ rds_instance_pbc311.instance.endpoint }}"
     wait: yes
