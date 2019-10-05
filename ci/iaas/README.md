@@ -11,6 +11,6 @@
 
 ```bash
 export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
-
+export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook -i hosts/local.ini pbc311.yml
 ```
