@@ -55,6 +55,7 @@
     ttl: 7200
     value:
       - "{{ ec2_eip_pbc311.public_ip }}"
+    overwrite: yes
     wait: yes
 
 - name: setup private dns - enc2
@@ -67,6 +68,7 @@
     ttl: 7200
     value:
       - "{{ ec2_instance_pbc311.instances.0.private_ip_address }}"
+    overwrite: yes
     wait: yes
 
 - name: setup public dns - db
@@ -79,6 +81,7 @@
     ttl: 7200
     value:
       - "{{ rds_instance_pbc311.instance.endpoint }}"
+    overwrite: yes
     wait: yes
 
 - name: setup private dns - db
@@ -91,4 +94,5 @@
     ttl: 7200
     value:
       - "{{ rds_instance_pbc311.instance.endpoint }}"
+    overwrite: yes
     wait: yes
