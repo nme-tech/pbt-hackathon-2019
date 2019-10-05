@@ -23,7 +23,7 @@
   register: ec2_instance_pbc311
 
 - name: create ec2 eip
-   ec2_eip:
+  ec2_eip:
     device_id: "{{ ec2_instance_pbc311.instances.instance_id }}"
     region: us-east-1
   register: ec2_eip_pbc311
