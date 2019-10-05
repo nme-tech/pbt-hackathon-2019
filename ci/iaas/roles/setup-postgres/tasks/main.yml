@@ -9,6 +9,9 @@
 - name: install dev toolkit
   shell: sudo yum groupinstall -y "Development Tools"
 
+- name: install python3-dev
+  shell: sudo yum install -y python3-devel
+
 - name: install pip3
   shell: sudo yum install -y python3-pip
 
