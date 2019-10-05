@@ -3,6 +3,9 @@
   shell: sudo amazon-linux-extras install postgresql10
   ignore_errors: True
 
+- name: install postgresql-devel
+  shell: sudo yum install -y postgresql-devel
+
 - name: install pip3
   shell: sudo yum install -y python3-pip
 
