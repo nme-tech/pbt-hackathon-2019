@@ -1,13 +1,7 @@
 ---
-- name: install postgres el7 repo
-  shell: sudo yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
-
-- name: set postgres repo to use latest
-  shell: sed -i "s/rhel-\$releasever-\$basearch/rhel-latest-x86_64/g" "/etc/yum.repos.d/pgdg-10-redhat.repo"
-  become: yes
-
-- name: install postgres 10 client
-  shell: sudo yum install -y postgresql10
+- name: install postgres 10
+  shell: sudo amazon-linux-extras install postgresql10
+  ignore_errors: True
 
 - name: install pip3
   shell: sudo yum install -y python3-pip
