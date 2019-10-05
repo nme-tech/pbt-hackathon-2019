@@ -60,7 +60,7 @@
     overwrite: yes
     wait: yes
 
-- name: setup private dns - enc2
+- name: setup private dns - ec2
   route53:
     state: present
     zone: hackathon2019.nmetech.com
