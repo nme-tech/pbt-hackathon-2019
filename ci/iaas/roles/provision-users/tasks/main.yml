@@ -1,7 +1,7 @@
 ---
 - name: set hostname
   hostname:
-    name: "pcb311.hackathon2019.nmetech.com"
+    name: "pbc311.hackathon2019.nmetech.com"
   become: yes
 
 - name: add user ssh access
