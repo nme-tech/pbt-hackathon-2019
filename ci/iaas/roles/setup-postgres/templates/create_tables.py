@@ -2,7 +2,7 @@ import psycopg2
 
 def create_tables():
     """ create tables in the PostgreSQL database"""
-    command = (
+    commands = (
         """
         CREATE TABLE task 
         (
@@ -16,7 +16,24 @@ def create_tables():
             originator VARCHAR(40),
             status_code INT   
         )
-        """)
+        """, 
+        """ 
+        CREATE TABLE public_works
+        (
+            pwID SERIAL PRIMARY KEY, 
+            department VARCHAR(50), 
+            email VARCHAR(50)
+        )
+        """, 
+        """
+        INSERT INTO public_works (department, email) 
+        VALUES ('Drainage Problems', 'cat4manager@gmail.com'), 
+               ('Signal Malfunction', 'cat4manager@gmail.com'), 
+               ('Sign Damage', 'cat4manager@gmail.com'),
+               ('Sidewalk Repair', 'cat4manager@gmail.com'), 
+               ('Pothole Hotline', 'cat4manager@gmail.com')
+        """
+        )
 
     conn = None
 
@@ -27,7 +44,8 @@ def create_tables():
         cur = conn.cursor()
 
         # create table one by one
-        cur.execute(command)
+        for command in commands:
+            cur.execute(command)
         
         # close communication with the PostgreSQL database server
         cur.close()
