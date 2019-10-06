@@ -40,7 +40,8 @@
     instance_type: db.t3.small
     region: us-east-1
     username: pgadmin
-    password: cat4life
+    password: "{{ postgres_pw }}"
+    wait: yes
     tags:
       Activity: PBC311
       Environment: Production
