@@ -29,5 +29,14 @@
 - name: setup sms stored credentials
   template:
     src: twilio.env
-    dest: ~/twilio.env
+    dest: /opt/twilio.env
     mode: '0600'
+
+- name: config nginx
+  copy:
+    src: files/message_fetch.sh
+    dest: /opt/message_fetch.sh
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
