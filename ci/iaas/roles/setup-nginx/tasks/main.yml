@@ -26,7 +26,6 @@
     set timeout 300
     certbot certonly \
       --nginx \
-      --standalone \
       -d pbc311.hackathon2019.nmetech.com \
       --agree-tos \
       --non-interactive \
@@ -44,3 +43,10 @@
     group: root
     mode: '0644'
   become: yes
+  register: nginx_config
+
+- name: restart nginx
+  service: nginx
+    state: restarted
+  become: yes
+  when: nginx_config.changed
