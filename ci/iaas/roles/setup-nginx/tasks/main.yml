@@ -46,7 +46,8 @@
   register: nginx_config
 
 - name: restart nginx
-  service: nginx
+  service:
+    name: nginx
     state: restarted
   become: yes
   when: nginx_config.changed
