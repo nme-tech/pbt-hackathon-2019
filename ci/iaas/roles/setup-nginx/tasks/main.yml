@@ -25,6 +25,8 @@
   shell: |
     set timeout 300
     certbot certonly \
+      -a standalone \
+      --cert-name pbc311.hackathon2019.nmetech.com \
       --agree-tos \
       --non-interactive \
       --text \
