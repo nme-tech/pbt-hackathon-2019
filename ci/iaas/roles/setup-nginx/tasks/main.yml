@@ -45,6 +45,16 @@
   become: yes
   register: nginx_config
 
+- name: drop in test user
+  copy:
+    src: files/.htpasswd
+    dest: /etc/nginx/.htpasswd
+    owner: root
+    group: root
+    mode: '0600'
+  become: yes
+  register: nginx_config
+
 - name: restart nginx
   service:
     name: nginx
