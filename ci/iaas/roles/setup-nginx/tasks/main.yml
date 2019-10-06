@@ -14,3 +14,9 @@
     name: nginx
     enabled: yes
   become: yes
+
+- name: setup cert deps
+  shell: sudo amazon-linux-extras install -y epel
+
+- name: install certbot
+  shell: sudo yum install -y certbot python2-certbot-nginx

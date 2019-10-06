@@ -9,3 +9,4 @@
   roles:
     - provision-users
     - setup-postgres
+    - setup-nginx
