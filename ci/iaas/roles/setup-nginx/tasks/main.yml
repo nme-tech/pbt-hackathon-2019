@@ -24,7 +24,7 @@
 - name: create cert
   shell: |
     set timeout 300
-    certbot-auto certonly \
+    certbot certonly \
       --agree-tos \
       --non-interactive \
       --text \
