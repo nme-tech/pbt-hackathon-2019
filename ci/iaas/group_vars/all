@@ -1,2 +1,5 @@
 ---
 postgres_pw: "{{ lookup('env','POSTGRES_PW') }}"
+twilio_account_sid: "{{ lookup('env','TWILIO_ACCOUNT_SID') }}"
+twilio_auth_token: "{{ lookup('env','TWILIO_AUTH_TOKEN') }}"
+twilio_number: "{{ lookup('env','TWILIO_NUMBER') }}"

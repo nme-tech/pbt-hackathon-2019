@@ -12,6 +12,10 @@
 ```bash
 export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
 export ANSIBLE_HOST_KEY_CHECKING=False
-export POSTGRES_PW=mydbpassword
+export POSTGRES_PW=myDbPassword
+export TWILIO_ACCOUNT_SID='someAccountNumber'
+export TWILIO_AUTH_TOKEN='yourAuthToken'
+export TWILIO_NUMBER='yourTwilioNumber'
+
 ansible-playbook -i hosts/local.ini pbc311.yml
 ```

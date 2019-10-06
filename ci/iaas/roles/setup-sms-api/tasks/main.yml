@@ -1,0 +1,33 @@
+---
+- name: install python3-dev
+  shell: sudo yum install -y python3-devel
+
+- name: install pip3
+  shell: sudo yum install -y python3-pip
+
+- name: install psycopg2
+  pip:
+    name: psycopg2
+    executable: pip3
+    state: latest
+  become: yes
+
+- name: install jq
+  pip:
+    name: jq
+    executable: pip3
+    state: latest
+  become: yes
+
+- name: install json2yaml
+  pip:
+    name: json2yaml
+    executable: pip3
+    state: latest
+  become: yes
+
+- name: setup sms stored credentials
+  template:
+    src: twilio.env
+    dest: ~/twilio.env
+    mode: '0600'
