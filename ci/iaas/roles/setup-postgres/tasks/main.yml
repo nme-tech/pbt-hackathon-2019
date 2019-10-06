@@ -28,6 +28,12 @@
     dest: ~/.pgpass
     mode: '0600'
 
+- name: Create a new database with name "acme"
+  postgresql_db:
+    name: pbc311
+    login_host: pbc311-db.hackathon2019.nmetech.com
+    login_user: pgadmin
+
 - name: write db seed file
   template: src=create_tables.py dest=~/create_tables.py
 
