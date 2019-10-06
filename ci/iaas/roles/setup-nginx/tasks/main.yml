@@ -25,15 +25,15 @@
   shell: |
     set timeout 300
     certbot certonly \
-      -a standalone \
-      --cert-name pbc311.hackathon2019.nmetech.com \
+      --nginx \
+      --standalone \
+      -d pbc311.hackathon2019.nmetech.com \
       --agree-tos \
       --non-interactive \
       --text \
       --rsa-key-size 4096 \
       --email nick@nmetech.com \
-      --webroot-path /var/www/html \
-      --domains "hackathon2019.nmetech.com"
+      --webroot-path /var/www/html
   become: yes
 
 - name: config nginx
