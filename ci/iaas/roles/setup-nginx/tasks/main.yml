@@ -49,8 +49,8 @@
   copy:
     src: files/.htpasswd
     dest: /etc/nginx/.htpasswd
-    owner: root
-    group: root
+    owner: nginx
+    group: nginx
     mode: '0600'
   become: yes
   register: nginx_config
