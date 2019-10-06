@@ -32,11 +32,20 @@
     dest: /opt/twilio.env
     mode: '0600'
 
-- name: config nginx
+- name: deploy message fetcher
   copy:
     src: files/message_fetch.sh
     dest: /opt/message_fetch.sh
     owner: root
     group: root
-    mode: '0644'
+    mode: '0744'
+  become: yes
+
+- name: deploy dispatcher
+  copy:
+    src: files/dispatcher.sh
+    dest: /opt/dispatcher.sh
+    owner: root
+    group: root
+    mode: '0744'
   become: yes
