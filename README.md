@@ -3,6 +3,7 @@
 Design/create entrypoint to report County Public Works projects via text messages which are then routed according to the proper division via email.
 
 Project for Palm Beach Tech Hackathon - 2019  
+https://palmbeachtech.org/hackathon/  
   
 ## Team Members
   
