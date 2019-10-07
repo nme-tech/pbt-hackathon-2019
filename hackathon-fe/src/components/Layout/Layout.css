@@ -1,0 +1,22 @@
+.layout {
+  display: grid;
+  grid-template-rows: 60px auto 50px;
+}
+
+.navbar {
+  background-color: #014c82;
+  height: 60px;
+  width: 100%;
+  color: #fff;
+  font-family: Bebas;
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  background-color: #fffdfd;
+}
+
+.hamburger-button {
+  float: left;
+}
